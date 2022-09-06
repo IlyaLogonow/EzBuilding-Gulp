@@ -1,0 +1,21 @@
+{
+  "name": "EzBuilding-Gulp-v1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-imagemin": "^7.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
+  }
+}
