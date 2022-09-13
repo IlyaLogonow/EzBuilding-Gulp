@@ -1,37 +1,34 @@
-const { src, dest, watch, series, parallel} = require('gulp');
+const { watch, series, parallel} = require('gulp');
 const browserSync = require('browser-sync').create();
 
-//Плагины
-const fileInclude = require('gulp-file-include');
+//Конфигурация
+const path = require('./config/path.js');
 
-//Обработка HTML
-const html = () => {
-    return src('./src/html/*.html')
-    .pipe(fileInclude())
-    .pipe(dest('./public'))
-    .pipe(browserSync.stream());
-}
+//Задачи
+const pug = require('./task/pug.js');
+const css = require('./task/css.js');
 
 //Сервер 
 const server = () => {
     browserSync.init({
         server: {
-            baseDir: './public'
+            baseDir: path.root
         }
     });
 }
 
 //Наблюдение 
 const watcher = () => {
-    watch('./src/html/**/*.html', html);
+    watch(path.pug.watch, pug).on('all', browserSync.reload);
+    watch(path.css.watch, css).on('all', browserSync.reload);
 }
 
 //Модули-задачи
-module.exports.html = html;
-module.exports.watch = watcher;
+exports.pug = pug;
+exports.css = css;
 
 //Сборка
 exports.dev = series (
-    html,
+    parallel(pug, css),
     parallel(watcher, server)
 );
