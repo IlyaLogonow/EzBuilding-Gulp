@@ -1,5 +1,6 @@
 ## EzBuilding-Gulp - Окружение для разработки веб-проектов
 Готовое окружение для разработки сайта.
+![EliasPortfolio-Website](https://github.com/IlyaLogonow/EzBuilding-Gulp/blob/main/gulp-beginners-cover.jpg)
 ## Требования к окружению EzBuilding-Gulp
 Для создания окружения необходимо иметь следующие установленные инструменты:
 - node.js
